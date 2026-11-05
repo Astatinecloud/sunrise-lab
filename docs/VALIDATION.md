@@ -10,7 +10,7 @@ Four independent reproductions of published wiki numbers are checked: reference 
 - **PASS r11a**: All cells pass.
 - **PASS r11b**: All cells pass.
 - **PASS Known discrepancy documented**: Required Ntot 0.00841607 versus printed 0.009; raw absolute difference 0.00058393 uM. Excess beyond output rounding is 0.00008393 uM, about 0.145% of c1. Likely wiki rounding or search resolution; no game-visible quantity is affected. Parameters unchanged.
-- **PASS single 18h run <400ms**: 222.45309999999972 ms
+- **PASS single 18h run <400ms**: 198.0547999999999 ms
 - **PASS 3-log kill**: -Infinity
 - **PASS R12 ceiling**: max B 2.466814601663154; ceiling 5.2849735814828325
 - **PASS R12 matched control**: max excess 0
@@ -40,7 +40,7 @@ Four independent reproductions of published wiki numbers are checked: reference 
     0.0054401798080734925
   ],
   "error1c": 0.8945954882704938,
-  "runtimeMs": 222.45309999999972
+  "runtimeMs": 198.0547999999999
 }
 ```
 
@@ -579,4 +579,4 @@ MIC at B0/6.4=26.441435361602288. The wiki's target table gives .0518µM,6.24-fo
 
 Additional R15 source discrepancy (report-only): at the cited serum-target B=.0518µM the implemented equations give MIC=27.08550702330472µg/mL, rather than below22. The computed threshold at22 is B*=0.041658740150448154µM. Thus the source table’s exact serum-target pair is not reproduced either; the qualitative conclusion of a large MIC drop over ~6x KanR reduction still holds. Likely source calibration/rounding or an unstated parameter context; no parameters changed.
 
-Single warmed18h run=222.45309999999972ms; budget400ms. Prettier dependency and format script removed. Runtime is offline.
+Single warmed18h run=198.0547999999999ms; budget400ms. Prettier dependency and format script removed. Runtime is offline.

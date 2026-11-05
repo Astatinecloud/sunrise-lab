@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { createStore } from '../src/state/store';
 import { defaultBuild, defaultSimConfig, runSimulation, framePresentation } from '../src/model';
 import { stage4 } from '../src/ui/stage4';
+import { stage1 } from '../src/ui/stage1';
 import { knownWikiDiscrepancy } from '../src/model/wiki';
 it('reset clears build, quiz, simulation, glossary and playback', () => {
     const store = createStore();
@@ -34,6 +35,30 @@ it('known source discrepancy stays in generated documentation', () => {
     expect(validation).toContain(knownWikiDiscrepancy.id);
     expect(validation).toContain('0.00841607');
     expect(validation).toContain('remains FAIL');
+});
+it('Stage4 allows advancing before playback ends and explains the result cards', () => {
+    const result = runSimulation({ ...defaultSimConfig, durationMin: 1 });
+    const store = createStore();
+    store.dispatch({ type: 'patch', value: { sim: { withSunrise: result, withoutSunrise: result } } });
+    const html = stage4(store.get());
+    expect(html.match(/<button\b[^>]*data-stage="5"[^>]*>/)?.[0]).toBe('<button data-stage="5">');
+    expect(html).toContain('最後まで再生すると、各条件の Δlog10 の結果カードが表示されます。今すぐ進むこともできます。');
+});
+it('Stage4 allows advancing at the final frame without the skip note', () => {
+    const result = runSimulation({ ...defaultSimConfig, durationMin: 1 });
+    const store = createStore();
+    store.dispatch({ type: 'patch', value: { sim: { withSunrise: result, withoutSunrise: result }, playback: { tIndex: result.frames.length - 1, playing: false, speed: 1 } } });
+    const html = stage4(store.get());
+    expect(html.match(/<button\b[^>]*data-stage="5"[^>]*>/)?.[0]).toBe('<button data-stage="5">');
+    expect(html).not.toContain('最後まで再生すると、各条件の Δlog10 の結果カードが表示されます。今すぐ進むこともできます。');
+});
+it('Stage1 keeps the advance button disabled until a quiz answer is chosen', () => {
+    const result = runSimulation({ ...defaultSimConfig, durationMin: 1 });
+    const store = createStore();
+    store.dispatch({ type: 'patch', value: { sim: { withSunrise: null, withoutSunrise: result }, quiz: null } });
+    expect(stage1(store.get()).match(/<button\b[^>]*data-stage="2"[^>]*>/)?.[0]).toBe('<button data-stage="2" disabled>');
+    store.dispatch({ type: 'patch', value: { quiz: 1 } });
+    expect(stage1(store.get()).match(/<button\b[^>]*data-stage="2"[^>]*>/)?.[0]).toBe('<button data-stage="2" >');
 });
 import { activationReadouts } from '../src/model/activation';
 it('coverage icons round expected counts rather than exaggerating tiny Poisson tails',()=>{

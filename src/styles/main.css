@@ -49,13 +49,13 @@ button {
   background:white;
   cursor:pointer
 }
-button:hover {
+button:hover:not(:disabled) {
   border-color:#1a8e8a;
   background:#e7f4f1
 }
 button:disabled {
   opacity:.45;
-  cursor:default
+  cursor:not-allowed
 }
 button[data-stage],button[data-action=compare],button[data-action=activate],button[data-action=try-build],button[data-action=dose],button[data-action=reset] {
   background:#1a8e8a;

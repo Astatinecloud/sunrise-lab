@@ -27,7 +27,7 @@ it('R27/R28 caption and MIC suffix share the material artifact gate', () => {
   const html=stage4(store.get());
   expect(html.includes('（同上の外挿による）')).toBe(expected);
   expect(html).toContain('未処理のKanR量');
-  expect(html).toMatch(t === 1080 ? /<button data-stage="5" >/ : /<button data-stage="5" disabled>/);
+  expect(html).toContain('<button data-stage="5">');
  }
  expect(artifactCaption).toContain('モデル上はKanRが蓄積します');
  const frame=result.frames[0], B=params.B0.value*1.05, N=params.K.value*0.5;

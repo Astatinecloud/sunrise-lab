@@ -34,5 +34,5 @@ export function stage4(s: State): string {
 <strong>Δlog10 = ${fmt(r.deltaLog10)}</strong>${r.success ? '<p class="badge">3-log（1000分の1）到達</p>' : '<p>3-log未到達</p>'}</div>` : ''}</section>`;
     }).join('')}</div>
 <p>0 cells/mL / Δlog10=−∞ は、すべての注入クラスが1細胞/mL未満になった計算上の除外を意味します。滅菌の証明ではありません。</p>
-<button data-stage="5" ${end ? '' : 'disabled'}>結果とまとめへ →</button>`;
+<button data-stage="5">結果とまとめへ →</button>${end ? '' : '<p>最後まで再生すると、各条件の Δlog10 の結果カードが表示されます。今すぐ進むこともできます。</p>'}`;
 }
