@@ -1,0 +1,5 @@
+import type { BuildConfig } from '../../model';
+export function pvc(b: BuildConfig, contracted = false): string {
+    const core = b.injector === 'pvc-core' ? '#6c5ce7' : '#cbd3d6';
+    return `<svg viewBox="0 0 620 300" role="img" aria-label="PVCの基盤・RBP尾繊維・収縮鞘・内管と内部の荷物"><path d="M240 40H340V${contracted ? 130 : 190}H240Z" fill="${core}"/><path d="M250 50l80 25 -80 25 80 25 -80 25 80 25" fill="none" stroke="white" stroke-width="5"/><path d="M290 30V250l-12 -20m12 20 12 -20" stroke="${core}" stroke-width="10"/><path d="M220 200H360" stroke="${core}" stroke-width="16"/><path d="M230 200l-65 60m185 -60 65 60" stroke="${b.rbp === 'gp17' ? '#1a8e8a' : '#cbd3d6'}" stroke-width="9"/>${b.cargo === 'tpd-adapter' ? '<rect x="280" y="75" width="20" height="50" rx="6" fill="#e8a33d"/>' : ''}${b.loadingSignal === 'pdp1-ntd' ? '<circle cx="290" cy="70" r="9" fill="#1a8e8a"/>' : ''}<text x="350" y="70">収縮鞘 / 内管</text><text x="350" y="115">内部：アダプター</text><text x="350" y="145">Pdp1_NTD：積み込み信号</text><text x="350" y="205">基盤</text><text x="120" y="290">Pvc13の尾繊維 / gp17 RBP</text></svg>`;
+}

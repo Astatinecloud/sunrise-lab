@@ -1,0 +1,87 @@
+{
+  "completed": true,
+  "observations": [
+    {
+      "name": "stage1-before",
+      "text": "01 / OBSERVE\nどうして薬が効かないの？\n\n耐性菌の中では、薬に何が起こっているのでしょう。\n\nカナマイシンと大腸菌\n\n1,000,000 cells/mL\n\n抗生物質を投与する\nKanRが薬を無力化する\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nカナマイシン → KanRによるリン酸化 → 不活化\n\nKanR量を減らせば耐性も同じ割合で下がる？\n\nKanR発現量（%）\nMIC / IC50 (µg/mL)\nJ23100\nJ23110\nJ23114\n\n● 赤：Exp3 測定IC50 ± SD　— 緑：モデルMIC（異なる指標）\n\n測定では高発現域にプラトーがあります。モデルは崩壊を再現しますが、このプラトーは再現しません。"
+    },
+    {
+      "name": "stage1-dosed",
+      "text": "01 / OBSERVE\nどうして薬が効かないの？\n\n耐性菌の中では、薬に何が起こっているのでしょう。\n\nカナマイシンと大腸菌\n\n1,219,521 cells/mL\n\n抗生物質を投与する\n\n細胞内の有効な薬 Ai=0.5261 µg/mL。細胞の中の有効な薬はごくわずか。\n\n9.26\n-30分\n1080分\nlog10 N (cells/mL)\nモデル再生 t = 24 分\n\n薬を加えても細菌は増殖します。最終 Δlog10=2.7613\n\nKanRが薬を無力化する\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nカナマイシン → KanRによるリン酸化 → 不活化\n\nKanR量を減らせば耐性も同じ割合で下がる？\n\nKanR発現量（%）\nMIC / IC50 (µg/mL)\nJ23100\nJ23110\nJ23114\n\n● 赤：Exp3 測定IC50 ± SD　— 緑：モデルMIC（異なる指標）\n\n測定では高発現域にプラトーがあります。モデルは崩壊を再現しますが、このプラトーは再現しません。\n\nなぜ今回、薬が効かなかった？\n細菌が薬を体の外に押し出しているから\n細菌がKanRという酵素を作り、カナマイシンを化学的に変化させて無力化しているから\nカナマイシンがもともと大腸菌に効かない薬だから\n次へ：SUNRISEを組み立てる →"
+    },
+    {
+      "name": "stage2-empty",
+      "text": "02 / ENGINEER\nSUNRISEを組み立てよう！\n\n部品をクリックして選択 → 対応するスロットをクリックして配置。間違った部品も試せます。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPdp1_NTDの荷札付きアダプターを、PVCの内管に積み込みます。\n\n2a CPI / PVC：届けるしくみ\n① 標的への付着 / Pvc13のRBP\ngp17（大腸菌LPS）\n別の菌を狙うRBP\nRBPなし\n配置先：RBPなし\n\n標的に合わないRBPでは、PVCが大腸菌の表面に付着できません。付着しなければ注入は始まりません。\n\n② 注入装置\nPVCコア（鞘・内管）\n装置なし\n配置先：装置なし\n\n収縮して内管を押し出す装置がなければ、細胞表面を貫通できません。\n\n③ 運ぶタンパク質\nTPDアダプター\n蛍光タンパク質\n荷物なし\n配置先：荷物なし\n\n届けたタンパク質が目的のアダプターでなければ、KanRは分解されません。\n\n④ 積み込みの荷札\nPdp1 N末端\n荷札なし\n配置先：荷札なし\n\nPdp1のN末端は、PVCに荷物を積み込むための“荷札”です。これが無いとタンパク質は積まれず、注入しても中身は空です。\n\n2b TPD：Binder → Linker → Anchor（XB）\nBinder / 標的をつかむ\nKanR用Binder\nGroEL用Binder\nBinderなし\n配置先：Binderなし\n\nBinderがKanRを認識できないと、アダプターはKanRをつかめません。分解は始まりません。\n\nLinker / つなぐ\n柔軟なGGS Linker\nLinkerなし\n配置先：Linkerなし\n\n柔らかいLinkerが無いと、KanRをClpXPの入口まで動かせません（モデル上の仮定）。\n\nAnchor / ClpXPを呼ぶ\nXB（ClpX ZBD結合）\nXBなし\n配置先：XBなし\n\nXBはClpXのZBDに結合する“取っ手”です。これが無いとClpXPを呼び込めません。\n\n部品を選んでください。\n\nステージ3へ →"
+    },
+    {
+      "name": "stage2-wrong-rbp",
+      "text": "02 / ENGINEER\nSUNRISEを組み立てよう！\n\n部品をクリックして選択 → 対応するスロットをクリックして配置。間違った部品も試せます。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPdp1_NTDの荷札付きアダプターを、PVCの内管に積み込みます。\n\n2a CPI / PVC：届けるしくみ\n① 標的への付着 / Pvc13のRBP\ngp17（大腸菌LPS）\n別の菌を狙うRBP\nRBPなし\n配置先：別の菌を狙うRBP\n\n標的に合わないRBPでは、PVCが大腸菌の表面に付着できません。付着しなければ注入は始まりません。\n\n② 注入装置\nPVCコア（鞘・内管）\n装置なし\n配置先：PVCコア（鞘・内管）\n\nこの部品は役割に合っています。\n\n③ 運ぶタンパク質\nTPDアダプター\n蛍光タンパク質\n荷物なし\n配置先：TPDアダプター\n\nこの部品は役割に合っています。\n\n④ 積み込みの荷札\nPdp1 N末端\n荷札なし\n配置先：Pdp1 N末端\n\nこの部品は役割に合っています。\n\n2b TPD：Binder → Linker → Anchor（XB）\nBinder / 標的をつかむ\nKanR用Binder\nGroEL用Binder\nBinderなし\n配置先：KanR用Binder\n\nこの部品は役割に合っています。\n\nLinker / つなぐ\n柔軟なGGS Linker\nLinkerなし\n配置先：柔軟なGGS Linker\n\nこの部品は役割に合っています。\n\nAnchor / ClpXPを呼ぶ\nXB（ClpX ZBD結合）\nXBなし\n配置先：XB（ClpX ZBD結合）\n\nこの部品は役割に合っています。\n\n選択中：XB（ClpX ZBD結合）。対応する「配置先」をクリック。\n\nステージ3へ →"
+    },
+    {
+      "name": "stage3-failure",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\ngp17がLPSに付着\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nα = [R] / ([R] + K_d)\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 3.1 / 22秒\nもう一度見る再生\n前処置モデル t = -30 分\nこの段階で停止\n\n標的に合わないRBPでは、PVCが大腸菌の表面に付着できません。付着しなければ注入は始まりません。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n0\nP(j=0) / 未到達\n1.000e+0\n代表注入回数 j（平均の丸め）\n0\n平均 N_tot\n0 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.134 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 0.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "stage3-low-moi",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\nPVCが近づく\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 0 / 22秒\nSUNRISEを起動再生\n前処置モデル t = -30 分\n注入のばらつき\nMOI 1\nλ\n1\nP(j=0) / 未到達\n3.679e-1\n代表注入回数 j（平均の丸め）\n1\n平均 N_tot\n0.0579 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.1032 µM\nk_eff（平均量で評価）\n0.0062 min⁻¹\n\nモデルではMOI 1の到達率 63.21206%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "stage3-complete",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\n感受性回復の可能性\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nXB–ClpX K_D1=0.065 µM\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 22 / 22秒\nもう一度見る再生\n前処置モデル t = 0 分\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n1.1061 µM\n平均 KanR B\n0.1698 µM\n遊離ClpXP [C]\n0.0346 µM\nk_eff（平均量で評価）\n0.1032 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.1698 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "stage4-early",
+      "text": "04 / COMPARE\nもう一度、抗生物質を使ってみよう！\n\n両方にカナマイシン 100 µg/mL。モデル予測を同じ時刻で比較します。\n\n再生\n速度 ×1（クリックで切替）\n時刻\nモデル再生 t = +0 分\n\nKanRが減ってもすぐ全滅はしません。薬が効き始め、増殖が止まり、やがて数が減ります。投薬後 120分まではClpXP完全阻害を仮定しています。\n\nSUNRISEなし\n\n1,000,000 cells/mL\n\n図 32個\n\nKanR B\n0.3233 µM\n推定MIC\n163.23 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.2388\n細胞内薬 Ai\n0.5265 µg/mL\n9.26\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n1.22\n-30分\n1080分\nKanR (µM)\nSUNRISEあり\n\n999,998 cells/mL\n\n図 32個\n\nKanR B\n0.1698 µM\n推定MIC\n86.26 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.6446\n細胞内薬 Ai\n1.4585 µg/mL\n6.75\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n0.36\n-30分\n1080分\nKanR (µM)\n\n0 cells/mL / Δlog10=−∞ は、すべての注入クラスが1細胞/mL未満になった計算上の除外を意味します。滅菌の証明ではありません。\n\n結果とまとめへ →"
+    },
+    {
+      "name": "stage4-dose",
+      "text": "04 / COMPARE\nもう一度、抗生物質を使ってみよう！\n\n両方にカナマイシン 100 µg/mL。モデル予測を同じ時刻で比較します。\n\n再生\n速度 ×1（クリックで切替）\n時刻\nモデル再生 t = +0 分\n\nKanRが減ってもすぐ全滅はしません。薬が効き始め、増殖が止まり、やがて数が減ります。投薬後 120分まではClpXP完全阻害を仮定しています。\n\nSUNRISEなし\n\n1,000,000 cells/mL\n\n図 32個\n\nKanR B\n0.3233 µM\n推定MIC\n163.23 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.2388\n細胞内薬 Ai\n0.5265 µg/mL\n9.26\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n1.22\n-30分\n1080分\nKanR (µM)\nSUNRISEあり\n\n999,998 cells/mL\n\n図 32個\n\nKanR B\n0.1698 µM\n推定MIC\n86.26 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.6446\n細胞内薬 Ai\n1.4585 µg/mL\n6.75\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n0.36\n-30分\n1080分\nKanR (µM)\n\n0 cells/mL / Δlog10=−∞ は、すべての注入クラスが1細胞/mL未満になった計算上の除外を意味します。滅菌の証明ではありません。\n\n結果とまとめへ →"
+    },
+    {
+      "name": "stage4-blockade",
+      "text": "04 / COMPARE\nもう一度、抗生物質を使ってみよう！\n\n両方にカナマイシン 100 µg/mL。モデル予測を同じ時刻で比較します。\n\n再生\n速度 ×1（クリックで切替）\n時刻\nモデル再生 t = +120 分\n\nKanRが減ってもすぐ全滅はしません。薬が効き始め、増殖が止まり、やがて数が減ります。投薬後 120分まではClpXP完全阻害を仮定しています。\n\nSUNRISEなし\n\n2,696,509 cells/mL\n\n図 86個\n\nKanR B\n0.3241 µM\n推定MIC\n163.64 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.2378\n細胞内薬 Ai\n0.5247 µg/mL\n9.26\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n1.22\n-30分\n1080分\nKanR (µM)\nSUNRISEあり\n\n1,712,591 cells/mL\n\n図 55個\n\nKanR B\n0.3014 µM\n推定MIC\n152.25 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.2701\n細胞内薬 Ai\n0.5794 µg/mL\n6.75\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n0.36\n-30分\n1080分\nKanR (µM)\n\n0 cells/mL / Δlog10=−∞ は、すべての注入クラスが1細胞/mL未満になった計算上の除外を意味します。滅菌の証明ではありません。\n\n結果とまとめへ →"
+    },
+    {
+      "name": "stage4-final",
+      "text": "04 / COMPARE\nもう一度、抗生物質を使ってみよう！\n\n両方にカナマイシン 100 µg/mL。モデル予測を同じ時刻で比較します。\n\n再生\n速度 ×4（クリックで切替）\n時刻\nモデル再生 t = +1,080 分\n\nKanRが減ってもすぐ全滅はしません。薬が効き始め、増殖が止まり、やがて数が減ります。投薬後 120分まではClpXP完全阻害を仮定しています。\n\nSUNRISEなし\n\n577,193,464 cells/mL\n\n図 120個 （上限表示・実数は上記）\n\nKanR B\n1.1076 µM\n推定MIC\n556.54 µg/mL\nf（殺菌応答・細胞数の割合ではない）\n0.025\n細胞内薬 Ai\n0.123 µg/mL\n9.26\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n1.22\n-30分\n1080分\nKanR (µM)\nΔlog10 = 2.7613\n\n3-log未到達\n\nSUNRISEあり\n\n0 cells/mL\n\n図 0個\n\nKanR B\n0 µM\n推定MIC\n—（生存クラスなし）\nf（殺菌応答・細胞数の割合ではない）\n0\n細胞内薬 Ai\n0 µg/mL\n6.75\n-30分\n1080分\nlog10 N (cells/mL)\nB0=0.3233\n0.36\n-30分\n1080分\nKanR (µM)\nΔlog10 = −∞\n\n3-log（1000分の1）到達\n\n0 cells/mL / Δlog10=−∞ は、すべての注入クラスが1細胞/mL未満になった計算上の除外を意味します。滅菌の証明ではありません。\n\n結果とまとめへ →"
+    },
+    {
+      "name": "stage5",
+      "text": "05 / REFLECT\n結果とまとめ\n\n今回のモデル Δlog10：SUNRISEなし 2.7613 / あり −∞\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n最初に効かなかった理由\n\nKanRがカナマイシンを化学的に変化させ、無力化したから。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nPVCは何をしたか\n\ngp17で大腸菌のLPSを認識し、鞘の収縮と内管でアダプターを届ける役割。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nBinderとXBは何をしたか\n\nBinderがKanRをつかみ、XBがClpX ZBDへ結合して近づける役割。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nClpXPは何をしたか\n\n近づけられたKanRをほどき、分解する役割。\n\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nなぜ再び効く可能性があるのか\n\n耐性の原因が減ると既存の薬が働く可能性があるから。統合系の効果はモデル予測です。\n\nSUNRISEの役割は、耐性の原因となるタンパク質を取り除き、既存の抗生物質の効果を取り戻すことを目指すものです。\n\n※このゲームの成功例は、2026年Wikiの数理モデルによる予測に基づく教育シミュレーションです。分解タグを直接つないだ場合の耐性低下は実験で確認されていますが、設計したKanR標的アダプターによる耐性低下は未確認です。\n\nモデルは耐性の崩壊を再現しますが、Exp3の高発現域のプラトーは再現しません。\n\nもう一度遊ぶ 科学的根拠を見る"
+    },
+    {
+      "name": "reset-stage1",
+      "text": "01 / OBSERVE\nどうして薬が効かないの？\n\n耐性菌の中では、薬に何が起こっているのでしょう。\n\nカナマイシンと大腸菌\n\n1,000,000 cells/mL\n\n抗生物質を投与する\nKanRが薬を無力化する\nClpXP\n外膜・細胞壁・内膜 / 細胞質\nカナマイシン → KanRによるリン酸化 → 不活化\n\nKanR量を減らせば耐性も同じ割合で下がる？\n\nKanR発現量（%）\nMIC / IC50 (µg/mL)\nJ23100\nJ23110\nJ23114\n\n● 赤：Exp3 測定IC50 ± SD　— 緑：モデルMIC（異なる指標）\n\n測定では高発現域にプラトーがあります。モデルは崩壊を再現しますが、このプラトーは再現しません。"
+    },
+    {
+      "name": "failure-injector",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\n鞘が収縮・アダプター注入\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 6.3 / 22秒\nもう一度見る再生\n前処置モデル t = -30 分\nこの段階で停止\n\n収縮して内管を押し出す装置がなければ、細胞表面を貫通できません。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n0\nP(j=0) / 未到達\n1.000e+0\n代表注入回数 j（平均の丸め）\n0\n平均 N_tot\n0 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.134 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 0.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "failure-loadingSignal",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\n鞘が収縮・アダプター注入\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 6.3 / 22秒\nもう一度見る再生\n前処置モデル t = -30 分\nこの段階で停止\n\nPdp1のN末端は、PVCに荷物を積み込むための“荷札”です。これが無いとタンパク質は積まれず、注入しても中身は空です。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n0 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.134 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "failure-cargo",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\n鞘が収縮・アダプター注入\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 6.3 / 22秒\nもう一度見る再生\n前処置モデル t = -30 分\nこの段階で停止\n\n届けたタンパク質が目的のアダプターでなければ、KanRは分解されません。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n0 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.134 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "failure-binder",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\nBinderがKanRを認識\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nBinder–KanR K_D2=0.12 µM\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 9.4 / 22秒\nもう一度見る再生\n前処置モデル t = -28.5 分\nこの段階で停止\n\nBinderがKanRを認識できないと、アダプターはKanRをつかめません。分解は始まりません。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n1.6994 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.0055 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "failure-linker",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\nXBがClpX ZBDへ結合\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nXB–ClpX K_D1=0.065 µM\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 12.6 / 22秒\nもう一度見る再生\n前処置モデル t = -21.5 分\nこの段階で停止\n\n柔らかいLinkerが無いと、KanRをClpXPの入口まで動かせません（モデル上の仮定）。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n1.5293 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.0062 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    },
+    {
+      "name": "failure-anchor",
+      "text": "03 / ACTIVATE\nSUNRISEを起動！\nXBがClpX ZBDへ結合\nClpXP\n外膜・細胞壁・内膜 / 細胞質\n\nXB–ClpX K_D1=0.065 µM\n\nPVCが近づく\ngp17がLPSに付着\n鞘が収縮・アダプター注入\nBinderがKanRを認識\nXBがClpX ZBDへ結合\nClpXPがKanRを分解\n感受性回復の可能性\n連続タイムライン 12.6 / 22秒\nもう一度見る再生\n前処置モデル t = -21.5 分\nこの段階で停止\n\nXBはClpXのZBDに結合する“取っ手”です。これが無いとClpXPを呼び込めません。\n\n組み立てに戻る\n注入のばらつき\nMOI 30\nλ\n30\nP(j=0) / 未到達\n9.358e-14\n代表注入回数 j（平均の丸め）\n30\n平均 N_tot\n1.5293 µM\n平均 KanR B\n0.3233 µM\n遊離ClpXP [C]\n0.134 µM\nk_eff（平均量で評価）\n0 min⁻¹\n\nモデルではMOI 30の到達率 100.00000%。低MOIでは届かない細胞が残ります。正しいCPIの構成では、MOI 30でほぼ全細胞に届く予測です。\n\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n▰\n\n灰色＝未到達（模式表示）\n\nB0=0.3233\n0.36\n-30分\n0分\nKanR (µM)\n\nKanR 0.3233 → 0.3233 µM\n\n感受性が回復する「可能性」が高まります（モデル予測）。\n\nステージ4：抗生物質で比較 →"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:4174/",
+    "http://127.0.0.1:4174/assets/index-D7AT99x-.js",
+    "http://127.0.0.1:4174/assets/index-Cun6NJgg.css"
+  ]
+}

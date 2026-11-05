@@ -1,0 +1,22 @@
+{
+  "name": "sunrise-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --configLoader native",
+    "test": "vitest run --configLoader native",
+    "validate": "node scripts/validate.mjs",
+    "build": "tsc --noEmit && vite build --configLoader native"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^3.2.4",
+    "vite-node": "^3.2.4",
+    "@types/node": "22.20.5"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
